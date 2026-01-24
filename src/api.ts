@@ -1,7 +1,8 @@
 import { levelsDb } from "./data";
 import { generate as braidokuGenerate } from "./games/braidoku";
 import type { Category } from "./types";
-import { Hono, type Context } from "hono";
+import { Hono } from "hono";
+import { logger } from "hono/logger";
 import { DateTime } from "luxon";
 
 type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][] };
@@ -9,7 +10,12 @@ type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][
 // temp braidoku cache
 const board: { [key: string]: GenerateReturn } = {};
 
+export const log = (...message: string[]) => {
+	console.log(...message);
+};
+
 const api = new Hono();
+api.use(logger(log));
 
 api.get("/", (c) => {
 	return c.text("yyyyello");
@@ -25,6 +31,8 @@ api.get("/braidoku/board", async (c) => {
 	if (!board[date]) {
 		board[date] = braidokuGenerate(date, 2, 5, 4);
 	}
+
+	log("aaa");
 
 	return c.json({ columns: board[date].columns, rows: board[date].rows });
 });
