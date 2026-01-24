@@ -1,9 +1,8 @@
-import api from "./api";
-import { levelsDb } from "./data";
+import app from "./api";
 
 Bun.serve({
 	port: 3000,
-	fetch: api.fetch,
+	fetch: app.fetch,
 });
 
 console.log("server running at http://localhost:3000");
