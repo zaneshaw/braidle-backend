@@ -2,9 +2,10 @@ import type { Level, World } from "./types";
 import { join } from "path";
 
 const levelsFile = Bun.file(join(import.meta.dir, "levels.json"));
+const rawLevels = await levelsFile.json();
 
 export const levelsDb: { raw: World[]; flat: { [key: string]: Level & { world: number } } } = {
-	raw: await levelsFile.json(),
+	raw: rawLevels,
 	get flat() {
 		let flattened: { [key: string]: Level & { world: number } } = {};
 
