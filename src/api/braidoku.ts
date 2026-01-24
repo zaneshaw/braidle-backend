@@ -2,7 +2,6 @@ import { levelsDb } from "../data";
 import { generate } from "../games/braidoku";
 import type { Category } from "../types";
 import { Hono } from "hono";
-import { logger } from "hono/logger";
 import { DateTime } from "luxon";
 
 type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][] };
@@ -11,7 +10,6 @@ type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][
 const board: { [key: string]: GenerateReturn } = {};
 
 const app = new Hono();
-app.use(logger());
 
 app.get("/board", async (c) => {
 	if (!c.req.query("tz")) return c.text("missing tz (IANA time zone).", 400);
