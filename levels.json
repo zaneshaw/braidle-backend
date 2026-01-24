@@ -1,0 +1,496 @@
+[
+	{
+		"world": 2,
+		"title": "Time and Forgiveness",
+		"levels": [
+			{
+				"level": 1,
+				"name": "Three Easy Pieces",
+				"categories": [
+					"trellis",
+					"goomba",
+					"2+ ladders",
+					"firepit"
+				],
+				"pieceCount": 3
+			},
+			{
+				"level": 2,
+				"name": "The Cloud Bridge",
+				"categories": [
+					"firepit",
+					"goomba",
+					"puzzleboard",
+					"cloud",
+					"key",
+					"star"
+				],
+				"pieceCount": 4
+			},
+			{
+				"level": 3,
+				"name": "Hunt!",
+				"categories": [
+					"goomba",
+					"2+ ladders"
+				],
+				"pieceCount": 1
+			},
+			{
+				"level": 4,
+				"name": "Leap of Faith",
+				"categories": [
+					"2+ ladders",
+					"goomba",
+					"flagpole",
+					"flagpole",
+					"lever",
+					"firepit"
+				],
+				"pieceCount": 4
+			}
+		]
+	},
+	{
+		"world": 3,
+		"title": "Time and Mystery",
+		"levels": [
+			{
+				"level": 1,
+				"name": "The Pit",
+				"categories": [
+					"green key",
+					"goomba",
+					"key"
+				],
+				"pieceCount": 0
+			},
+			{
+				"level": 2,
+				"name": "There and Back Again",
+				"categories": [
+					"trellis",
+					"goomba",
+					"vertical platform",
+					"key",
+					"green key"
+				],
+				"pieceCount": 1
+			},
+			{
+				"level": 3,
+				"name": "Phase",
+				"categories": [
+					"cloud",
+					"trellis"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 4,
+				"name": "The Ground Beneath Her Feet",
+				"categories": [
+					"green piece",
+					"goomba",
+					"key",
+					"lever",
+					"firepit",
+					"2+ ladders"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 5,
+				"name": "Tight Channels",
+				"categories": [
+					"rabbit",
+					"2+ ladders",
+					"plant",
+					"firepit"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 6,
+				"name": "Irreversible",
+				"categories": [
+					"vertical platform",
+					"rabbit",
+					"plant",
+					"goomba",
+					"firepit",
+					"puzzleboard",
+					"2+ ladders",
+					"green key",
+					"key"
+				],
+				"pieceCount": 3
+			},
+			{
+				"level": 7,
+				"name": "Lair",
+				"categories": [
+					"trellis",
+					"goomba",
+					"firepit",
+					"key",
+					"green key"
+				],
+				"pieceCount": 0
+			},
+			{
+				"level": 8,
+				"name": "A Tingling",
+				"categories": [
+					"flagpole",
+					"vertical platform",
+					"key",
+					"goomba",
+					"2+ ladders",
+					"trellis",
+					"firepit",
+					"rabbit",
+					"lever",
+					"green piece"
+				],
+				"pieceCount": 2
+			}
+		]
+	},
+	{
+		"world": 4,
+		"title": "Time and Place",
+		"levels": [
+			{
+				"level": 1,
+				"name": "The Pit",
+				"categories": [
+					"green key",
+					"goomba",
+					"key",
+					"firepit"
+				],
+				"pieceCount": 0
+			},
+			{
+				"level": 2,
+				"name": "Jumpman",
+				"categories": [
+					"goomba",
+					"green piece",
+					"key",
+					"green key",
+					"2+ ladders",
+					"plant"
+				],
+				"pieceCount": 3
+			},
+			{
+				"level": 3,
+				"name": "Just Out of Reach",
+				"categories": [
+					"2+ ladders",
+					"goomba",
+					"green key",
+					"lever",
+					"vertical platform",
+					"key",
+					"green key"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 4,
+				"name": "Hunt!",
+				"categories": [
+					"goomba",
+					"green piece",
+					"2+ ladders"
+				],
+				"pieceCount": 1
+			},
+			{
+				"level": 5,
+				"name": "Movement by Degrees",
+				"categories": [
+					"rabbit",
+					"goomba",
+					"key",
+					"green key",
+					"2+ ladders",
+					"green piece",
+					"firepit",
+					"cloud",
+					"key",
+					"green key"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 6,
+				"name": "Movement, Amplified",
+				"categories": [
+					"plant",
+					"goomba",
+					"puzzleboard",
+					"2+ ladders",
+					"green piece",
+					"cloud",
+					"key",
+					"green key"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 7,
+				"name": "Fickle Companion",
+				"categories": [
+					"green piece",
+					"goomba",
+					"firepit",
+					"2+ ladders",
+					"key",
+					"lever",
+					"star",
+					"vertical platform"
+				],
+				"pieceCount": 2
+			}
+		]
+	},
+	{
+		"world": 5,
+		"title": "Time and Decision",
+		"levels": [
+			{
+				"level": 1,
+				"name": "The Pit",
+				"categories": [
+					"goomba"
+				],
+				"pieceCount": 1
+			},
+			{
+				"level": 2,
+				"name": "So Distant",
+				"categories": [
+					"vertical platform",
+					"lever",
+					"trellis",
+					"goomba",
+					"2+ ladders"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 3,
+				"name": null,
+				"categories": [
+					"firepit",
+					"rabbit",
+					"trellis",
+					"green piece",
+					"goomba",
+					"key"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 4,
+				"name": "Crossing the Gap",
+				"categories": [
+					"goomba",
+					"star",
+					"2+ ladders",
+					"lever"
+				],
+				"pieceCount": 3
+			},
+			{
+				"level": 5,
+				"name": "Window of Opportunity",
+				"categories": [
+					"puzzleboard",
+					"2+ ladders",
+					"goomba",
+					"key"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 6,
+				"name": "Lair",
+				"categories": [
+					"trellis",
+					"goomba",
+					"key",
+					"vertical platform",
+					"lever",
+					"firepit"
+				],
+				"pieceCount": 1
+			},
+			{
+				"level": 7,
+				"name": "Fragile Companion",
+				"categories": [
+					"key",
+					"green key",
+					"goomba",
+					"flagpole"
+				],
+				"pieceCount": 1
+			}
+		]
+	},
+	{
+		"world": 6,
+		"title": "Hesitance",
+		"levels": [
+			{
+				"level": 1,
+				"name": "The Pit?",
+				"categories": [],
+				"pieceCount": 0
+			},
+			{
+				"level": 2,
+				"name": "There and Back Again",
+				"categories": [
+					"trellis",
+					"vertical platform",
+					"goomba",
+					"key",
+					"rabbit"
+				],
+				"pieceCount": 1
+			},
+			{
+				"level": 3,
+				"name": "Phase?",
+				"categories": [
+					"cloud",
+					"trellis"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 4,
+				"name": "Cascade",
+				"categories": [
+					"goomba",
+					"firepit",
+					"green piece",
+					"key",
+					"lever"
+				],
+				"pieceCount": 3
+			},
+			{
+				"level": 5,
+				"name": "Impassible Foliage",
+				"categories": [
+					"goomba",
+					"rabbit",
+					"firepit",
+					"puzzleboard",
+					"plant",
+					"2+ ladders",
+					"star"
+				],
+				"pieceCount": 2
+			},
+			{
+				"level": 6,
+				"name": "Elevator Action",
+				"categories": [
+					"star",
+					"2+ ladders",
+					"lever",
+					"green piece",
+					"rabbit",
+					"key"
+				],
+				"pieceCount": 3
+			},
+			{
+				"level": 7,
+				"name": "In Another Castle",
+				"categories": [
+					"2+ ladders",
+					"firepit",
+					"lever",
+					"key",
+					"flagpole"
+				],
+				"pieceCount": 1
+			}
+		]
+	},
+	{
+		"world": 1,
+		"title": "World 1",
+		"levels": [
+			{
+				"level": 4,
+				"name": null,
+				"categories": [
+					"goomba",
+					"firepit"
+				],
+				"pieceCount": 0
+			},
+			{
+				"level": 3,
+				"name": null,
+				"categories": [
+					"goomba",
+					"firepit"
+				],
+				"pieceCount": 0
+			},
+			{
+				"level": 2,
+				"name": null,
+				"categories": [
+					"goomba",
+					"firepit",
+					"2+ ladders"
+				],
+				"pieceCount": 0
+			},
+			{
+				"level": 1,
+				"name": "Braid",
+				"categories": [
+					"star",
+					"trellis",
+					"2+ ladders",
+					"goomba",
+					"vertical platform",
+					"firepit",
+					"plant",
+					"lever"
+				],
+				"pieceCount": 0
+			}
+		]
+	},
+	{
+		"world": 0,
+		"title": "World 0",
+		"levels": [
+			{
+				"level": 8,
+				"categories": [
+					"key",
+					"flagpole",
+					"2+ ladders",
+					"cloud",
+					"lever"
+				],
+				"pieceCount": 0
+			}
+		]
+	}
+]
