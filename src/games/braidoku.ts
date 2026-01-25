@@ -4,9 +4,9 @@ import { DateTime } from "luxon";
 import random from "random";
 
 // temp braidoku cache
-const boardCache: { [key: string]: GenerateReturn } = {};
+const boardCache: { [key: string]: BraidokuBoard } = {};
 
-type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][] };
+type BraidokuBoard = { columns: Category[]; rows: Category[]; grid: number[][][] };
 
 function randomCategories(quantity: number): Category[] {
 	const set = new Set<Category>();
@@ -38,7 +38,7 @@ export function getBoard(timezone: string, seed?: number, useCache: boolean = tr
 	return board;
 }
 
-function generate(seed: string, minLevelsPerCell: number, maxLevelsPerCell: number, maxLevelOccurrences: number): GenerateReturn {
+function generate(seed: string, minLevelsPerCell: number, maxLevelsPerCell: number, maxLevelOccurrences: number): BraidokuBoard {
 	let columns: Category[] = [];
 	let rows: Category[] = [];
 	let grid: number[][][] = [];
