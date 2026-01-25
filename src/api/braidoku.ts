@@ -9,7 +9,7 @@ const app = new Hono();
 
 const schema = z.object({
 	tz: CanonicalTimezoneSchema,
-	seed: z.coerce.number().int().min(0).max(999999999999).optional(),
+	seed: z.string().optional(),
 	useCache: z.coerce.boolean().default(true),
 });
 

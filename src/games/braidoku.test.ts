@@ -1,27 +1,27 @@
 import { getBoard } from "./braidoku";
 import { expect, test } from "bun:test";
 
-test("generate braidoku board (seed = 1337)", () => {
-	const board = getBoard("Australia/Melbourne", 1337, false);
+test("generate braidoku board (seed = '1337')", () => {
+	const board = getBoard("Australia/Melbourne", "1337", false);
 
 	expect(board).toStrictEqual({
-		columns: ["firepit", "key", "goomba"],
-		rows: ["plant", "cloud", "flagpole"],
+		columns: ["key", "firepit", "2+ ladders"],
+		rows: ["puzzleboard", "flagpole", "star"],
 		grid: [
 			[
-				[8, 9, 30, 36],
-				[9, 13, 17],
-				[9, 13, 17, 30, 36],
+				[1, 9, 17, 23],
+				[1, 9, 30],
+				[9, 17, 23, 30],
 			],
 			[
-				[1, 16],
-				[1, 16, 17, 37],
-				[1, 16, 17],
-			],
-			[
-				[3, 11, 32],
 				[11, 25, 32, 37],
-				[3, 11, 25],
+				[3, 11, 32],
+				[3, 11, 32, 37],
+			],
+			[
+				[1, 18, 31],
+				[1, 18, 30, 36],
+				[18, 22, 30, 31, 36],
 			],
 		],
 	});

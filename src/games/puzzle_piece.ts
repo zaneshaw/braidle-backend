@@ -4,13 +4,8 @@ import { DateTime } from "luxon";
 import { join } from "path";
 import random from "random";
 
-export async function getPiece(timezone: string, seed?: number, useCache: boolean = true) {
-	let _seed: string;
-	if (seed != undefined) {
-		_seed = seed.toString();
-	} else {
-		_seed = DateTime.now().setZone(timezone).toISODate() as string;
-	}
+export async function getPiece(timezone: string, seed?: string) {
+	let _seed = Bun.hash(seed ? seed : (DateTime.now().setZone(timezone).toISODate() as string)).toString();
 
 	random.use(_seed);
 

@@ -18,13 +18,8 @@ function randomCategories(quantity: number): Category[] {
 	return Array.from(set);
 }
 
-export function getBoard(timezone: string, seed?: number, useCache: boolean = true) {
-	let _seed: string;
-	if (seed != undefined) {
-		_seed = seed.toString();
-	} else {
-		_seed = DateTime.now().setZone(timezone).toISODate() as string;
-	}
+export function getBoard(timezone: string, seed?: string, useCache: boolean = true) {
+	let _seed = Bun.hash(seed ? seed : (DateTime.now().setZone(timezone).toISODate() as string)).toString();
 
 	if (useCache && boardCache[_seed]) {
 		return boardCache[_seed]!;
