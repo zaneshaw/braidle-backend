@@ -3,7 +3,8 @@ import { CATEGORIES, type Category } from "../types";
 import { DateTime } from "luxon";
 import random from "random";
 
-const board: { [key: string]: GenerateReturn } = {};
+// temp braidoku cache
+const boards: { [key: string]: GenerateReturn } = {};
 
 type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][] };
 
@@ -17,7 +18,22 @@ function randomCategories(quantity: number): Category[] {
 	return Array.from(set);
 }
 
-export function generate(seed: string, minLevelsPerCell: number, maxLevelsPerCell: number, maxLevelOccurrences: number): GenerateReturn {
+export function getBoard(timezone: string, seed?: number) {
+	let _seed: string;
+	if (seed != undefined) {
+		_seed = seed.toString();
+	} else {
+		_seed = DateTime.now().setZone(timezone).toISODate() as string;
+	}
+
+	if (!boards[_seed]) {
+		boards[_seed] = generate(_seed, 2, 5, 4);
+	}
+
+	return boards[_seed]!;
+}
+
+function generate(seed: string, minLevelsPerCell: number, maxLevelsPerCell: number, maxLevelOccurrences: number): GenerateReturn {
 	let columns: Category[] = [];
 	let rows: Category[] = [];
 	let grid: number[][][] = [];

@@ -1,59 +1,40 @@
 import { levelsDb } from "../data";
-import { generate } from "../games/braidoku";
-import type { Category } from "../types";
+import { getBoard } from "../games/braidoku";
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
-import { DateTime } from "luxon";
 import z from "zod";
 import { CanonicalTimezoneSchema } from "zod-timezone-validation";
 
-type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][] };
-
-// temp braidoku cache
-const board: { [key: string]: GenerateReturn } = {};
-
 const app = new Hono();
 
-app.get(
-	"/board",
-	zValidator(
-		"query",
-		z.object({
-			tz: CanonicalTimezoneSchema,
-		})
-	),
-	async (c) => {
-		const date = DateTime.now().setZone(c.req.valid("query").tz).toISODate() as string;
+const schema = z.object({
+	tz: CanonicalTimezoneSchema,
+	seed: z.coerce.number().int().min(0).max(999999999999).optional(),
+});
 
-		if (!board[date]) {
-			board[date] = generate(date, 2, 5, 4);
-		}
+app.get("/board", zValidator("query", schema), async (c) => {
+	const board = getBoard(c.req.valid("query").tz, c.req.valid("query").seed);
 
-		return c.json({ columns: board[date].columns, rows: board[date].rows });
-	}
-);
+	return c.json({ columns: board.columns, rows: board.rows });
+});
 
 app.get(
 	"/guess",
 	zValidator(
 		"query",
 		z.object({
-			tz: CanonicalTimezoneSchema,
+			...schema.shape,
 			index: z.coerce.number().min(0).max(8),
 			world: z.coerce.number(),
 			level: z.coerce.number(),
 		})
 	),
 	async (c) => {
-		const date = DateTime.now().setZone(c.req.valid("query").tz).toISODate() as string;
-
-		if (!board[date]) {
-			board[date] = generate(date, 2, 5, 4);
-		}
+		const board = getBoard(c.req.valid("query").tz, c.req.valid("query").seed);
 
 		const levels = Object.values(levelsDb.flat);
 
-		const cell = board[date].grid.flat()[c.req.valid("query").index]!;
+		const cell = board.grid.flat()[c.req.valid("query").index]!;
 		const correct = cell.some((levelIndex) => levels[levelIndex]!.world == c.req.valid("query").world && levels[levelIndex]!.level == c.req.valid("query").level);
 
 		return c.json(correct);
