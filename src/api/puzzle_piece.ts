@@ -12,7 +12,9 @@ const schema = z.object({
 });
 
 app.get("/image", zValidator("query", schema), async (c) => {
-	const piece = await getPiece(c.req.valid("query").tz, c.req.valid("query").seed);
+	const q = c.req.valid("query");
+
+	const piece = await getPiece(q.tz, q.seed);
 
 	return c.json({ base64: `data:image/png;base64,${piece.image.toBase64()}` });
 });
@@ -28,9 +30,10 @@ app.get(
 		})
 	),
 	async (c) => {
-		const piece = await getPiece(c.req.valid("query").tz, c.req.valid("query").seed);
+		const q = c.req.valid("query");
 
-		const correct = piece.level.world == c.req.valid("query").world && piece.level.level == c.req.valid("query").level;
+		const piece = await getPiece(q.tz, q.seed);
+		const correct = piece.level.world == q.world && piece.level.level == q.level;
 
 		return c.json(correct);
 	}

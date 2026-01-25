@@ -14,7 +14,9 @@ const schema = z.object({
 });
 
 app.get("/board", zValidator("query", schema), async (c) => {
-	const board = getBoard(c.req.valid("query").tz, c.req.valid("query").seed, c.req.valid("query").useCache);
+	const q = c.req.valid("query");
+
+	const board = getBoard(q.tz, q.seed, q.useCache);
 
 	return c.json({ columns: board.columns, rows: board.rows });
 });
@@ -31,12 +33,13 @@ app.get(
 		})
 	),
 	async (c) => {
-		const board = getBoard(c.req.valid("query").tz, c.req.valid("query").seed, c.req.valid("query").useCache);
+		const q = c.req.valid("query");
 
+		const board = getBoard(q.tz, q.seed, q.useCache);
 		const levels = Object.values(levelsDb.flat);
 
-		const cell = board.grid.flat()[c.req.valid("query").index]!;
-		const correct = cell.some((levelIndex) => levels[levelIndex]!.world == c.req.valid("query").world && levels[levelIndex]!.level == c.req.valid("query").level);
+		const cell = board.grid.flat()[q.index]!;
+		const correct = cell.some((levelIndex) => levels[levelIndex]!.world == q.world && levels[levelIndex]!.level == q.level);
 
 		return c.json(correct);
 	}
