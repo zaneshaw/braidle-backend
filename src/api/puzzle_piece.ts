@@ -35,7 +35,7 @@ app.get(
 		const piece = await getPiece(q.tz, q.seed);
 		const correct = piece.level.world == q.world && piece.level.level == q.level;
 
-		return c.json(correct);
+		return c.json({ correct });
 	}
 );
 

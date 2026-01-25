@@ -5,7 +5,9 @@ const levelsFile = Bun.file(join(import.meta.dir, "levels.json"));
 const rawLevels = await levelsFile.json();
 
 export const levelsDb: { raw: World[]; flat: { [key: string]: Level & { world: number } } } = {
-	raw: rawLevels,
+	get raw() {
+		return rawLevels;
+	},
 	get flat() {
 		let flattened: { [key: string]: Level & { world: number } } = {};
 

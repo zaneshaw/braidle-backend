@@ -41,7 +41,7 @@ app.get(
 		const cell = board.grid.flat()[q.index]!;
 		const correct = cell.some((levelIndex) => levels[levelIndex]!.world == q.world && levels[levelIndex]!.level == q.level);
 
-		return c.json(correct);
+		return c.json({ correct });
 	}
 );
 
