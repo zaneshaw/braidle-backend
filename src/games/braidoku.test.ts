@@ -5,23 +5,23 @@ test("generate braidoku board (seed = '1337')", () => {
 	const board = getBoard("Australia/Melbourne", "1337", false);
 
 	expect(board).toStrictEqual({
-		columns: ["key", "firepit", "2+ ladders"],
-		rows: ["puzzleboard", "flagpole", "star"],
+		columns: ["world 3", "cloud", "1 piece"],
+		rows: ["2+ ladders", "trellis", "firepit"],
 		grid: [
 			[
-				[1, 9, 17, 23],
-				[1, 9, 30],
-				[9, 17, 23, 30],
+				[7, 8, 9, 11],
+				[16, 17, 37],
+				[2, 15, 32],
 			],
 			[
-				[11, 25, 32, 37],
-				[3, 11, 32],
-				[3, 11, 32, 37],
+				[5, 6, 10, 11],
+				[6, 28],
+				[5, 24, 27],
 			],
 			[
-				[1, 18, 31],
-				[1, 18, 30, 36],
-				[18, 22, 30, 31, 36],
+				[7, 8, 9, 10, 11],
+				[1, 16],
+				[24, 32],
 			],
 		],
 	});

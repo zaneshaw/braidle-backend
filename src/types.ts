@@ -22,7 +22,7 @@ export const CATEGORIES = [
 	"world 4",
 	"world 5",
 	"world 6",
-];
+] as const;
 export type Category = (typeof CATEGORIES)[number];
 
 export type Level = {

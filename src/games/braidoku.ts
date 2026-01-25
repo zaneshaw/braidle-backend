@@ -12,7 +12,7 @@ function randomCategories(quantity: number): Category[] {
 	const set = new Set<Category>();
 
 	while (set.size < quantity) {
-		set.add(random.choice(CATEGORIES) as Category);
+		set.add(random.choice(CATEGORIES as unknown as Category[]) as Category);
 	}
 
 	return Array.from(set);
@@ -44,7 +44,7 @@ function generate(seed: string, minLevelsPerCell: number, maxLevelsPerCell: numb
 	generator: while (true) {
 		// lol
 		if (attempts % 1000 == 0) {
-			random.use((seed += random.int(0, 999)));
+			random.use(Bun.hash((seed += random.int(0, 999999999))).toString());
 		}
 
 		attempts++;
@@ -63,7 +63,23 @@ function generate(seed: string, minLevelsPerCell: number, maxLevelsPerCell: numb
 		// for every cell, find every level that matches the cell's categories
 		for (let row = 0; row < 3; row++) {
 			for (let col = 0; col < 3; col++) {
-				const matchingIndexes = levels.filter((level) => level.categories.includes(columns[col]!) && level.categories.includes(rows[row]!)).map((level) => levels.indexOf(level));
+				const matchingIndexes = levels
+					.filter((level) => {
+						const levelCategories: Category[] = [...level.categories];
+
+						if (level.world >= 1 && level.world <= 6) {
+							levelCategories.push(`world ${level.world}` as Category);
+						}
+
+						if (level.pieceCount == 0) {
+							levelCategories.push("no piece");
+						} else if (level.pieceCount == 1) {
+							levelCategories.push("1 piece");
+						}
+
+						return levelCategories.includes(columns[col]!) && levelCategories.includes(rows[row]!);
+					})
+					.map((level) => levels.indexOf(level));
 				grid[row]![col] = matchingIndexes;
 			}
 		}
