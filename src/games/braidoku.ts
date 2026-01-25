@@ -4,7 +4,7 @@ import { DateTime } from "luxon";
 import random from "random";
 
 // temp braidoku cache
-const boards: { [key: string]: GenerateReturn } = {};
+const boardCache: { [key: string]: GenerateReturn } = {};
 
 type GenerateReturn = { columns: Category[]; rows: Category[]; grid: number[][][] };
 
@@ -18,7 +18,7 @@ function randomCategories(quantity: number): Category[] {
 	return Array.from(set);
 }
 
-export function getBoard(timezone: string, seed?: number) {
+export function getBoard(timezone: string, seed?: number, useCache: boolean = true) {
 	let _seed: string;
 	if (seed != undefined) {
 		_seed = seed.toString();
@@ -26,11 +26,16 @@ export function getBoard(timezone: string, seed?: number) {
 		_seed = DateTime.now().setZone(timezone).toISODate() as string;
 	}
 
-	if (!boards[_seed]) {
-		boards[_seed] = generate(_seed, 2, 5, 4);
+	if (useCache && boardCache[_seed]) {
+		return boardCache[_seed]!;
 	}
 
-	return boards[_seed]!;
+	let board = generate(_seed, 2, 5, 4);
+	if (useCache) {
+		boardCache[_seed] = board;
+	}
+
+	return board;
 }
 
 function generate(seed: string, minLevelsPerCell: number, maxLevelsPerCell: number, maxLevelOccurrences: number): GenerateReturn {
