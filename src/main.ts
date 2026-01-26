@@ -1,8 +1,8 @@
 import app from "./api";
 
 Bun.serve({
-	port: 3000,
+	port: 8055,
 	fetch: app.fetch,
 });
 
-console.log("server running at http://localhost:3000");
+console.log("server running at http://localhost:8055");
