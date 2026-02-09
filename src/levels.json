@@ -192,7 +192,7 @@
 				"categories": [
 					"2+ ladders",
 					"goomba",
-					"green key",
+					"green piece",
 					"lever",
 					"vertical platform",
 					"key",
@@ -221,9 +221,8 @@
 					"2+ ladders",
 					"green piece",
 					"firepit",
-					"cloud",
-					"key",
-					"green key"
+					"star",
+					"plant"
 				],
 				"pieceCount": 2
 			},
