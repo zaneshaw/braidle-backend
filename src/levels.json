@@ -252,7 +252,8 @@
 					"key",
 					"lever",
 					"star",
-					"vertical platform"
+					"vertical platform",
+					"flagpole"
 				],
 				"pieceCount": 2
 			}
@@ -397,7 +398,8 @@
 					"puzzleboard",
 					"plant",
 					"2+ ladders",
-					"star"
+					"star",
+					"vertical platform"
 				],
 				"pieceCount": 2
 			},
